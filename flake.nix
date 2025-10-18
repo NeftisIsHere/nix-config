@@ -8,13 +8,24 @@
 
   };
 
-  outputs = { self, nixpkgs, ... } @ inputs: {
+  outputs = { self, nixpkgs, home-manager, ... } @ inputs: 
+  let
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+  in
+
+  {
     nixosConfigurations.fraKctured = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; };
-      system = "x86_64-linux";
+      inherit system;
       modules = [
         ./configuration.nix
       ];
-    }; 
+    };
+    homeConfigurations.jazz = home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
+      modules = [
+        ./home.nix
+      ];
+    };
   };
 }
