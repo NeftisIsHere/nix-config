@@ -47,9 +47,13 @@
 
   programs.niri.enable = true;
   programs.waybar.enable = true;
+  programs.starship.enable = true;
 
   environment.systemPackages = with pkgs; [
-    alacritty
+    pywal16
+    imagemagick
+    colorz
+    gcc
     neovim
     fastfetch
     firefox
@@ -58,6 +62,14 @@
     foot
     font-awesome
     git
+    xwayland-satellite
+    wlogout
+    swaynotificationcenter
+    eza
+  ];
+
+  fonts.packages = with pkgs; [
+    nerd-fonts.fira-code
   ];
 
   security.rtkit.enable = true;
