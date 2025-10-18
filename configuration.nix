@@ -9,7 +9,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "fraKcture";
+  networking.hostName = "fraKctured";
   networking.networkmanager.enable = true;
 
   time.timeZone = "America/Santiago";

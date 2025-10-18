@@ -8,9 +8,10 @@
 
   };
 
-  outputs = { nixpkgs, ... } @ inputs: {
-    nixosConfigurations.fraKcture = nixpkgs.lib.nixosSystem {
+  outputs = { self, nixpkgs, ... } @ inputs: {
+    nixosConfigurations.fraKctured = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
+      system = "x86_64-linux";
       modules = [
         ./configuration.nix
       ];
