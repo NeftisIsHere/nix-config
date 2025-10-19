@@ -4,6 +4,11 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./modules/system.nix
+      ./modules/desktop.nix
+      ./modules/applications.nix
+      ./modules/development.nix
+      ./modules/gaming.nix
     ];
   
   boot.loader.systemd-boot.enable = true;
@@ -44,10 +49,6 @@
   };
 
   nixpkgs.config.allowUnfree = true;
-
-  programs.niri.enable = true;
-  programs.waybar.enable = true;
-  programs.starship.enable = true;
 
   environment.systemPackages = with pkgs; [
     pywal16
