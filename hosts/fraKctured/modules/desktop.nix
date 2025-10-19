@@ -3,8 +3,8 @@
 {
   # Programs 
   programs.niri.enable = true;
-  programs.waybar.enable = true;
-  programs.starship.enable = true;
+  # programs.waybar.enable = true;
+  # programs.starship.enable = true;
   programs.bash.enable = true;
   programs.seahorse.enable = true;
 

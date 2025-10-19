@@ -11,6 +11,7 @@
     colorz
     imagemagick
     tmux
+    yazi
 
     # Theme
     bibata-cursors

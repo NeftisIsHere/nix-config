@@ -3,6 +3,9 @@ let
   smlk = config.lib.file.mkOutOfStoreSymlink;
 in
 {
+  imports = [
+    ./modules/applications/swaync.nix
+  ];
   home.username = "jazz";
   home.homeDirectory = "/home/jazz";
 
@@ -10,15 +13,11 @@ in
 
   home.packages = with pkgs; [
     # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
-    sl
-    nerd-fonts.fira-mono
-
   ];
 
   home.file = {
     ".config/foot".source = smlk "/home/jazz/.dotfiles/.config/foot";
     ".config/waybar".source = smlk "/home/jazz/.dotfiles/.config/waybar";
-    ".config/swaync".source = smlk "/home/jazz/.dotfiles/.config/swaync";
     ".config/fastfetch".source = smlk "/home/jazz/.dotfiles/.config/fastfetch";
     ".config/mpd".source = smlk "/home/jazz/.dotfiles/.config/mpd";
     ".config/rmpc".source = smlk "/home/jazz/.dotfiles/.config/rmpc";
@@ -33,6 +32,8 @@ in
     shellAliases = {
       ".." = "cd ..";
       "ls" = "eza --icons --group-directories-first --almost-all";
+      "home-switch" = "home-manager switch --flake ~/nix-config#jazz";
+      "nix-switch" = "sudo nixos-rebuild switch --flake ~/nix-config#fraKctured";
     };
   };
   programs.eza = {
@@ -43,10 +44,9 @@ in
   };
   programs.waybar = {
     enable = true;
-    systemd.enable = true;
   };
   programs.yazi.enable = true;
-  services.swaync.enable = true;
+  programs.starship.enable = true;
   
   programs.home-manager.enable = true;
 }

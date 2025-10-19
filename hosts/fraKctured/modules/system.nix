@@ -44,7 +44,17 @@
   programs.vim.enable = true;
   programs.neovim.enable = true;
 
-  services.aria2.enable = true;
+  # Login Manager
+  services.displayManager.ly = {
+    enable = true;
+    settings = {
+	animation = "matrix";
+    };
+  };
+
+  # Power Profiles
+  services.tuned.enable = true;
+  services.tuned.ppdSupport = true;
 
   # Audio 
   security.rtkit.enable = true;
