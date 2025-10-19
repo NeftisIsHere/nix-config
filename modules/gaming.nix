@@ -9,9 +9,7 @@
 
   environment.systemPackages = with pkgs; [
     lutris wine-staging
+    winetricks
     mangohud goverlay
-    qbittorrent
-
-    protonup-qt
   ];
 }

@@ -1,10 +1,12 @@
 { config, pkgs, ... } :
 
 {
+  # Programs 
   programs.niri.enable = true;
   programs.waybar.enable = true;
   programs.starship.enable = true;
   programs.bash.enable = true;
+  programs.seahorse.enable = true;
 
   fonts.packages = with pkgs; [
     corefonts
@@ -39,7 +41,11 @@
     code-nautilus
     loupe
     sushi
-    
+
+    # XDG and utility
+    xdg-desktop-portal-gnome
+    xdg-utils
+    polkit_gnome
   ];
 
   users.defaultUserShell = pkgs.bash;

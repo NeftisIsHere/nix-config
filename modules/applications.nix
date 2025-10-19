@@ -4,6 +4,7 @@
   # For default, DE agnostic applications
 
   environment.systemPackages = with pkgs; [
+    # Terminal
     foot
     fastfetch
     pywal16
@@ -11,8 +12,10 @@
     imagemagick
     tmux
 
+    # Theme
     bibata-cursors
 
+    # GUI
     firefox
     vscode
     qbittorrent
@@ -21,5 +24,7 @@
     mpvScripts.mpris
     legcord
     onlyoffice-bin
+    nicotine-plus
+    solaar
   ];
 }

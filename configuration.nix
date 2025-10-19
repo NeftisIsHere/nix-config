@@ -10,7 +10,10 @@
       ./modules/development.nix
       ./modules/gaming.nix
     ];
-  
+
+  nixpkgs.config.allowUnfree = true;
+  nix.settings.experimental-features = ["nix-command" "flakes" ];
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -18,7 +21,6 @@
   networking.networkmanager.enable = true;
 
   time.timeZone = "America/Santiago";
-
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "es_CL.UTF-8";
@@ -31,54 +33,17 @@
     LC_TELEPHONE = "es_CL.UTF-8";
     LC_TIME = "es_CL.UTF-8";
   };
-
+  console.keyMap = "es";
   services.xserver.xkb = {
     layout = "latam";
     variant = "";
   };
 
-  console.keyMap = "es";
 
   users.users.jazz = {
     isNormalUser = true;
     description = "Jazmin Irene Vallejos Cartes";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      tree
-    ];
-  };
-
-  nixpkgs.config.allowUnfree = true;
-
-  environment.systemPackages = with pkgs; [
-    pywal16
-    imagemagick
-    colorz
-    gcc
-    neovim
-    fastfetch
-    firefox
-    fuzzel
-    swww
-    foot
-    font-awesome
-    git
-    xwayland-satellite
-    wlogout
-    swaynotificationcenter
-    eza
-  ];
-
-  fonts.packages = with pkgs; [
-    nerd-fonts.fira-code
-  ];
-
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
+    extraGroups = [ "networkmanager" "wheel" "input" "plugdev" "games" "gamemode" ];
   };
 
   # This value determines the NixOS release from which the default
@@ -89,5 +54,4 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
 
-  nix.settings.experimental-features = ["nix-command" "flakes" ];
 }

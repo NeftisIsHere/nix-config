@@ -2,12 +2,30 @@
 
 {
   environment.systemPackages = with pkgs; [
-    eza bat fd ripgrep tree
-    fzf zoxide btop htop
-    p7zip unzip unrar rar
-    ntfs3g wget
-    curl tldr
-  
+    # TODO: Organize this shit.
+    eza
+    colord
+    bat
+    fd
+    ripgrep
+    tree
+    fzf
+    zoxide
+    btop
+    htop
+    p7zip
+    unzip
+    unrar
+    rar
+    ntfs3g
+    wget
+    curl
+    tldr
+    pv
+    xarchiver
+    smartmontools
+    pv
+
     pavucontrol
     helvum
     ffmpeg
