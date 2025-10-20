@@ -13,6 +13,7 @@
     packages = with pkgs; [
       # Development
       # nodePackages.node2nix
+      vscode
       openssh
       # scdoc
       git
@@ -24,9 +25,6 @@
       # duckdb
       # dbt
       # framac
-      terraform
-      opentofu
-      awscli2
       github-markdown-toc-go
 
       devenv
